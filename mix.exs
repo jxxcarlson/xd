@@ -17,8 +17,9 @@ defmodule Xd.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
-  end
+      [applications: [:logger, :ecto, :postgrex, :httpoison ],
+       mod: {Xd, []}]
+    end
 
   # Dependencies can be Hex packages:
   #
@@ -30,6 +31,10 @@ defmodule Xd.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
-  end
+     [{:ecto, "~> 2.0"},
+     {:postgrex, "~> 0.11"},
+     {:poison, "~> 3.0"},
+     {:httpoison, "~>0.9.0"},
+     {:json, "~>0.3.0"}]
+   end
 end
